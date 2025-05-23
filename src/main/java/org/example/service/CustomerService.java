@@ -24,7 +24,6 @@ public class CustomerService {
 
     public Customer createCustomer(String firstName, String lastName, String phone){
         Customer customer = new Customer(firstName,lastName,phone);
-// Todo créer un compte lié par la meme occasion
         try {
             if(customerDAO.add(customer)){
                 return customer;

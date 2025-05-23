@@ -35,4 +35,11 @@ public class BankAccountService {
         return false;
     }
 
+    public BankAccount getAccount(int id){
+        try {
+            return BankAccountDAO.get(id);
+        }catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 }
