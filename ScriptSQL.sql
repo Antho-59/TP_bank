@@ -1,0 +1,23 @@
+
+CREATE DATABASE IF NOT EXISTS bankDB;
+
+USE bankDB;
+
+CREATE TABLE IF NOT EXISTS customer(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+first_name VARCHAR (100),
+ last_name VARCHAR(100),
+ phone VARCHAR(11)); -- VARCHAR 11 au cas ou user utilise un +33
+ 
+CREATE TABLE IF NOT EXISTS bankAccount(
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+customer_id INT NOT NULL,
+    FOREIGN KEY (customer_id) REFERENCES customer(id));
+    
+CREATE TABLE IF NOT EXISTS operation(
+
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+amount DOUBLE,
+opstatut VARCHAR(30),
+account_id INT);
+
