@@ -23,6 +23,9 @@ public class Customer {
         this.phone = phone;
     }
 
+    public Customer(int id, String firstName, String lastName) {
+    }
+
 
     public int getId() {
         return id;

@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.List;
 
 public class CustomerDAO extends BaseDAO<Customer>{
-    protected CustomerDAO(Connection connection) {
+    public CustomerDAO(Connection connection) {
         super(connection);
     }
 
@@ -58,14 +58,12 @@ public class CustomerDAO extends BaseDAO<Customer>{
         statement.setInt(1,id);
         resultSet = statement.executeQuery();
         if (resultSet.next()){
-            customer = new Customer(resultSet.getInt("id"), // TODO BUG ici pas compris
+            customer = new Customer(resultSet.getInt("id"),
                     resultSet.getString("first_name"),
                     resultSet.getString("last_name"));
         }
         return customer;
     }
-
-
 
 
 }
