@@ -37,9 +37,22 @@ public class BankAccountService {
 
     public BankAccount getAccount(int id){
         try {
-            return BankAccountDAO.get(id);
+            return bankAccountDAO.get(id);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
+    }
+
+    public boolean deleteAccount(int id){
+        BankAccount bankAccount = null;
+        try {
+            bankAccount = bankAccountDAO.get(id);
+            if(bankAccount != null){
+                return bankAccountDAO.delete(bankAccount);
+            }
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 }
