@@ -23,8 +23,8 @@ public class BankAccountService {
         }
     }
 
-    public boolean createAccount(Customer,int customerID) {
-        BankAccount bankAccount = new BankAccount(customerID);
+    public boolean createAccount(Customer customer) {
+        BankAccount bankAccount = new BankAccount(customer.getId());
         try {
             if (bankAccountDAO.add(bankAccount)) {
                 return true;
